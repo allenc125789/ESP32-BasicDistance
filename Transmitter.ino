@@ -6,6 +6,7 @@
 uint8_t broadcastAddress[] = {0xB0, 0x81, 0x84, 0x04, 0x97, 0x88};
 int loopcount = 0;
 int txpower = 0;
+//Pin Out
 const int distancePin =  3;    // Pin D1
 const int buzzerPin =  4;    // Pin D2
 
