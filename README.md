@@ -6,7 +6,7 @@ Cycles between 8 levels of signal streangth. Then sends a bool statement through
 
 ## Setup:
 Requires:
- - x2 ESP32C3s (I have only tested on XIAO models).
+ x2 ESP32C3s (I have only tested on XIAO models).
 
 ### - Reciever
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials.](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino)[^2]. Write this mac address down.
