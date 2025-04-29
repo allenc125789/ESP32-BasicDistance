@@ -5,7 +5,7 @@ Guages distance by adjusting the ESP32C3's wifi transmission power.
 Cycles between 8 levels of signal streangth. Then sends a simple bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `distancePin` will light up.
 
 ## Distance Calculation
-(Will depend on the antenna used. These calculations will use [Seeed antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
+(Will depend on the antenna used. These calculations will use the [Seeed antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
 -To do: calculate distance.
 
 Cycle 1: 19dBm
