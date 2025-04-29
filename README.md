@@ -7,10 +7,10 @@ Cycles between 8 levels of signal streangth. Then sends a bool statement through
 ## Setup:
 Requires x2 ESP32C3s (I have only tested on XIAO models).
 
-### - Reciever Setup
+### - Reciever
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials.](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino)
   2) Upload the reciever code to previously used ESPC3s. Power it on and set it to the side.
-### - Transmitter Setup
+### - Transmitter
   3) Replace the MAC address in transmiiter.ino's code with the new one you recieved, then upload transmitter.ino to your second ESP32C3.
 
 ## Distance Calculation
