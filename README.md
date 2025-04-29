@@ -6,6 +6,7 @@ Cycles between 8 levels of signal streangth. Then sends a bool statement through
 
 ## Setup:
 Requires:
+
  x2 ESP32C3s (I have only tested on XIAO models).
 
 ### - Reciever
