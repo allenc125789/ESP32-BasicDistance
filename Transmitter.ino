@@ -106,9 +106,9 @@ void loop() {
   if (confirmTx()){
     //Lights pins depending on confirmation of range.
     digitalWrite(distancePin, HIGH);
-    digitalWrite(distancePin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
     delay(200);
-    digitalWrite(buzzerPin, LOW);
+    digitalWrite(distancePin, LOW);
     digitalWrite(buzzerPin, LOW);
   }
 
