@@ -4,6 +4,12 @@ Guages distance by adjusting the ESP32C3's wifi transmission power.
 
 Cycles between 8 levels of signal streangth. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `distancePin` will light up.
 
+## Setup:
+Requires x2 ESP32C3s (I have only tested on XIAO models).
+
+1) Upload the reciever code to one of the ESPc3s, and connect via serial monitor to get the MAC address.
+2) Replace the MAC address in transmiiter.ino's code with the new one you recieved, then upload transmitter.ino to your second ESP32c3.
+
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
 -To do: calculate distance.
