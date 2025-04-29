@@ -1,8 +1,10 @@
 ## Description
 
-Guages distance by adjusting the ESP32C3's wifi transmission power. The closer the transmitter gets to the reciever, the higher frequency the `distancePin` will light up.
+Guages distance by adjusting the ESP32C3's wifi transmission power.
 
-Sends a simple bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer.
+Sends a simple bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance between the transmitter and reciever shortens, the higher frequency the `distancePin` will light up. Goes up to 8 cycles (8 blinks on the LED).
+
+-To do: calculate distance.
 
 _____
 
