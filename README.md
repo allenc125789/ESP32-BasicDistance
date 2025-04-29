@@ -26,7 +26,7 @@ Cycle 8: 2dBm
 
 _____
 
-Resources used:
+### Resources used:
 
  - https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/
  - https://github.com/G6EJD/ESP32-8266-Adjust-WiFi-RF-Power-Output/blob/main/ESP_WiFI_Power_Adjust.ino
