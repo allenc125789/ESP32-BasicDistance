@@ -70,6 +70,8 @@ void selectTxPower(int loopcount){
 void setup() {
   // Init Serial Monitor
   Serial.begin(115200);
+
+  //Set Pin mode.
   pinMode(distancePin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
 
@@ -104,12 +106,14 @@ void loop() {
 
   //Sends and confirms Message transmission.
   if (confirmTx()){
-    //Lights pins depending on confirmation of range.
+    //Activates pins depending on confirmation of range.
     digitalWrite(distancePin, HIGH);
     digitalWrite(buzzerPin, HIGH);
     delay(200);
     digitalWrite(distancePin, LOW);
     digitalWrite(buzzerPin, LOW);
+  } else {
+    delay(200)
   }
 
   //Determines stage of loop
@@ -117,6 +121,4 @@ void loop() {
   if (loopcount == 8){
     loopcount = 0;
   }
-  
-  delay(200);
 }
