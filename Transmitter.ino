@@ -14,10 +14,7 @@ const int buzzerPin =  2;    // Pin D2
 // Structure example to send data
 // Must match the receiver structure
 typedef struct struct_message {
-  char a[32];
-  int b;
-  float c;
-  bool d;
+  bool p;
 } struct_message;
 
 // Create a struct_message called myData
@@ -32,10 +29,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 
 bool confirmTx(){
   // Set values to send
-  strcpy(myData.a, "THIS IS A CHAR");
-  myData.b = random(1,20);
-  myData.c = 1.2;
-  myData.d = false;
+  myData.p = true;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
 
