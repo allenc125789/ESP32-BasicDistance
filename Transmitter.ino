@@ -10,8 +10,6 @@ int txpower = 0;
 const int ledPin =  3;    // Pin D1
 const int buzzerPin =  4;    // Pin D2
 
-
-
 // Structure example to send data
 // Must match the receiver structure
 typedef struct struct_message {
