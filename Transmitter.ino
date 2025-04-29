@@ -7,7 +7,7 @@ uint8_t broadcastAddress[] = {0xB0, 0x81, 0x84, 0x04, 0x97, 0x88};
 int loopcount = 0;
 int txpower = 0;
 //Pin Out
-const int distancePin =  3;    // Pin D1
+const int ledPin =  3;    // Pin D1
 const int buzzerPin =  4;    // Pin D2
 
 
@@ -72,7 +72,7 @@ void setup() {
   Serial.begin(115200);
 
   //Set Pin mode.
-  pinMode(distancePin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
 
   // Set device as a Wi-Fi Station
@@ -107,10 +107,10 @@ void loop() {
   //Sends and confirms Message transmission.
   if (confirmTx()){
     //Activates pins depending on confirmation of range.
-    digitalWrite(distancePin, HIGH);
+    digitalWrite(ledPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
     delay(200);
-    digitalWrite(distancePin, LOW);
+    digitalWrite(ledPin, LOW);
     digitalWrite(buzzerPin, LOW);
   } else {
     delay(200)
