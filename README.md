@@ -1,4 +1,4 @@
-#ESP32C3-based Received Signal Strength Indicator
+## ESP32C3-based Received Signal Strength Indicator
 
 Guages distance by adjusting the ESP32C3's wifi transmission power. The closer the transmitter gets to the reciever, the higher frequency the `distancePin` will light up.
 
