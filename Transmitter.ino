@@ -1,0 +1,127 @@
+#include <esp_now.h>
+#include <WiFi.h>
+#include "esp_wifi.h"
+
+// REPLACE WITH YOUR RECEIVER MAC Address
+uint8_t broadcastAddress[] = {0xB0, 0x81, 0x84, 0x04, 0x97, 0x88};
+int loopcount = 0;
+int txpower = 0;
+const int distancePin =  1;    // Pin D1
+const int buzzerPin =  2;    // Pin D2
+
+
+
+// Structure example to send data
+// Must match the receiver structure
+typedef struct struct_message {
+  char a[32];
+  int b;
+  float c;
+  bool d;
+} struct_message;
+
+// Create a struct_message called myData
+struct_message myData;
+esp_now_peer_info_t peerInfo;
+
+// callback when data is sent
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  Serial.print("\r\nLast Packet Send Status:\t");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+}
+
+bool confirmTx(){
+  // Set values to send
+  strcpy(myData.a, "THIS IS A CHAR");
+  myData.b = random(1,20);
+  myData.c = 1.2;
+  myData.d = false;
+  // Send message via ESP-NOW
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
+
+  //Bool of message-tx confirmation
+  if (result == ESP_OK) {
+    Serial.println("Sent with success");
+    return true; 
+  }
+  else {
+    Serial.println("Error sending the data");
+    return false;
+  }
+}
+
+void selectTxPower(int loopcount){
+    if (loopcount == 0){
+        txpower = WIFI_POWER_19dBm;      // 19dBm
+    } if (loopcount == 1){
+        txpower = WIFI_POWER_17dBm;      // 17dBm
+    } if (loopcount == 2){
+        txpower = WIFI_POWER_15dBm;      // 15dBm
+    } if (loopcount == 3){
+        txpower = WIFI_POWER_13dBm;      // 13dBm
+    } if (loopcount == 4){
+        txpower = WIFI_POWER_11dBm;      // 11dBm
+    } if (loopcount == 5){
+        txpower = WIFI_POWER_7dBm;       //  7dBm
+    } if (loopcount == 6){
+        txpower = WIFI_POWER_5dBm;       //  5dBm
+    } if (loopcount == 7){
+        txpower = WIFI_POWER_2dBm;       //  2dBm
+    }
+    esp_wifi_set_max_tx_power(txpower);
+    Serial.println(WiFi.getTxPower());
+}
+
+void setup() {
+  // Init Serial Monitor
+  Serial.begin(115200);
+  pinMode(distancePin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+
+  // Once ESPNow is successfully Init, we will register for Send CB to
+  // get the status of Trasnmitted packet
+  esp_now_register_send_cb(OnDataSent);
+  
+  // Register peer
+  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+  peerInfo.channel = 0;  
+  peerInfo.encrypt = false;
+  
+  // Add peer        
+  if (esp_now_add_peer(&peerInfo) != ESP_OK){
+    Serial.println("Failed to add peer");
+    return;
+  }
+}
+
+void loop() {
+  //Sets Wi-Fi Transmission range.
+  selectTxPower(loopcount);
+
+  //Sends and confirms Message transmission.
+  if (confirmTx()){
+    //Lights pins depending on confirmation of range.
+    digitalWrite(distancePin, HIGH);
+    digitalWrite(distancePin, HIGH);
+    delay(200);
+    digitalWrite(buzzerPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+  }
+
+  //Determines stage of loop
+  loopcount += 1;
+  if (loopcount == 8){
+    loopcount = 0;
+  }
+  
+  delay(200);
+}
