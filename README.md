@@ -1,6 +1,6 @@
 ## Description
 
-Measures distance between two ESP32C3's, by adjusting the wifi transmission power[^1].
+Measures distance between two ESP32C3s by adjusting the wifi transmission power[^1].
 
 Cycles between 8 modes of signal streangth. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `distancePin` will light up.
 
