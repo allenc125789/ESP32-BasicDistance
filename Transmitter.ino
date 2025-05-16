@@ -112,7 +112,7 @@ void loop() {
     digitalWrite(ledPin, LOW);
     digitalWrite(buzzerPin, LOW);
   } else {
-    delay(200)
+    delay(200);
   }
 
   //Determines stage of loop
