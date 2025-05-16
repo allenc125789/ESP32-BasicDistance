@@ -6,6 +6,7 @@
 uint8_t broadcastAddress[] = {0xB0, 0x81, 0x84, 0x04, 0x97, 0x88};
 int loopcount = 0;
 int txpower = 0;
+bool txsend = 0;
 //Pin Out
 const int ledPin =  3;    // Pin D1
 const int buzzerPin =  4;    // Pin D2
@@ -25,19 +26,13 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
   if (status == ESP_NOW_SEND_SUCCESS){
-    //Activates pins depending on confirmation of range.
-    digitalWrite(ledPin, HIGH);
-    digitalWrite(buzzerPin, HIGH);
-    delay(200);
-    digitalWrite(ledPin, LOW);
-    digitalWrite(buzzerPin, LOW);
+    txsend = true;
   } else {
-    delay(200);
+    txsend = false;
   }
-  delay(200);
 }
 
-bool confirmTx(){
+void confirmTx(){
   // Set values to send
   myData.p = true;
   // Send message via ESP-NOW
@@ -46,11 +41,8 @@ bool confirmTx(){
   //Bool of message-tx confirmation
   if (result == ESP_OK) {
     Serial.println("Sent with success");
-    return true; 
-  }
-  else {
+  } else {
     Serial.println("Error sending the data");
-    return false;
   }
 }
 
@@ -112,8 +104,21 @@ void setup() {
 void loop() {
   //Sets Wi-Fi Transmission range.
   selectTxPower(loopcount);
+
   //Sends and confirms Message transmission.
   confirmTx();
+  if (txsend == true){
+    //Activates pins depending on confirmation of range.
+    digitalWrite(ledPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+  } else {
+    delay(200);
+  }
+  delay(200);
+
   //Determines stage of loop
   loopcount += 1;
   if (loopcount == 8){
