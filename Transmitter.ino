@@ -24,6 +24,17 @@ esp_now_peer_info_t peerInfo;
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  if (status == ESP_NOW_SEND_SUCCESS){
+    //Activates pins depending on confirmation of range.
+    digitalWrite(ledPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+  } else {
+    delay(200);
+  }
+  delay(200);
 }
 
 bool confirmTx(){
@@ -101,20 +112,8 @@ void setup() {
 void loop() {
   //Sets Wi-Fi Transmission range.
   selectTxPower(loopcount);
-
   //Sends and confirms Message transmission.
-  bool connResults = confirmTx();
-  if (connResults){
-    //Activates pins depending on confirmation of range.
-    digitalWrite(ledPin, HIGH);
-    digitalWrite(buzzerPin, HIGH);
-    delay(200);
-    digitalWrite(ledPin, LOW);
-    digitalWrite(buzzerPin, LOW);
-  } else {
-    delay(200);
-  }
-
+  confirmTx();
   //Determines stage of loop
   loopcount += 1;
   if (loopcount == 8){
