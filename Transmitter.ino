@@ -50,18 +50,14 @@ void selectTxPower(int loopcount){
     if (loopcount == 0){
         txpower = WIFI_POWER_19dBm;      // 19dBm
     } if (loopcount == 1){
-        txpower = WIFI_POWER_17dBm;      // 17dBm
-    } if (loopcount == 2){
         txpower = WIFI_POWER_15dBm;      // 15dBm
-    } if (loopcount == 3){
-        txpower = WIFI_POWER_13dBm;      // 13dBm
-    } if (loopcount == 4){
+    } if (loopcount == 2){
         txpower = WIFI_POWER_11dBm;      // 11dBm
-    } if (loopcount == 5){
+    } if (loopcount == 3){
         txpower = WIFI_POWER_7dBm;       //  7dBm
-    } if (loopcount == 6){
+    } if (loopcount == 4){
         txpower = WIFI_POWER_5dBm;       //  5dBm
-    } if (loopcount == 7){
+    } if (loopcount == 5){
         txpower = WIFI_POWER_2dBm;       //  2dBm
     }
     esp_wifi_set_max_tx_power(txpower);
@@ -104,11 +100,10 @@ void setup() {
 void loop() {
   //Sets Wi-Fi Transmission range.
   selectTxPower(loopcount);
-
   //Sends and confirms Message transmission.
   confirmTx();
+  //Activates pins depending on confirmation of range.
   if (txsend == true){
-    //Activates pins depending on confirmation of range.
     digitalWrite(ledPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
     delay(200);
@@ -121,7 +116,7 @@ void loop() {
 
   //Determines stage of loop
   loopcount += 1;
-  if (loopcount == 8){
+  if (loopcount == 6){
     loopcount = 0;
   }
 }
