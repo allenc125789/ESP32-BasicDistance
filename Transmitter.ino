@@ -103,7 +103,7 @@ void loop() {
   selectTxPower(loopcount);
 
   //Sends and confirms Message transmission.
-  bool connResults = confirmTx()
+  bool connResults = confirmTx();
   if (connResults){
     //Activates pins depending on confirmation of range.
     digitalWrite(ledPin, HIGH);
