@@ -18,7 +18,7 @@ Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmi
   2) Upload the edited `Transmitter.ino` to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
 
 ### Circuit...
-This is a basic schematic of the working circuit using an XIAO-ESP32C3 and this program.
+This is a basic schematic for the transmitter using an XIAO-ESP32C3 and this program.
 ![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
 
 ## Distance Calculation
