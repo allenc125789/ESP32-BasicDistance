@@ -1,6 +1,6 @@
 ## ESP32C3 Basic Distance Tracking
 
-Measures distance between two ESP32C3 devices by adjusting the wifi transmission power.
+Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmission power.
 
 ## How does it work?
 
