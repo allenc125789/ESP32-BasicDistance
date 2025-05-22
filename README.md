@@ -11,11 +11,11 @@ Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmi
 ## Setup:
 ### Reciever...
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino) [^3]. Write this mac address down.
-  2) Upload reciever.ino to previously used ESPC3s. Power it on and set it to the side.
+  2) Upload `Reciever.ino` to previously used ESPC3s. Power it on and set it to the side.
 
 ### Transmitter...
-  1) Replace the MAC address in transmitter.ino's code with the new one you recieved.
-  2) Upload the edited transmitter.ino to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
+  1) Replace the MAC address in `Transmitter.ino`'s code with the new one you recieved.
+  2) Upload the edited `Transmitter.ino` to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
 
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
