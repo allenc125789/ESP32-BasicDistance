@@ -6,6 +6,8 @@
 
   (title_block
     (title "XIAO-ESP32C3 DistanceTracker, Transmitter")
+    (date "05.22.2025")
+    (rev "1.0.0")
   )
 
   (lib_symbols
