@@ -17,6 +17,10 @@ Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmi
   1) Replace the MAC address in `Transmitter.ino`'s code with the new one you recieved.
   2) Upload the edited `Transmitter.ino` to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
 
+### Circuit...
+This is a basic schematic of the working circuit using an XIAO-ESP32C3 and this program.
+![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
+
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
 -To do: calculate distance.
