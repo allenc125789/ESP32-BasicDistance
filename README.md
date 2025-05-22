@@ -2,7 +2,7 @@
 
 Measures distance between two ESP32C3s by adjusting the wifi transmission power[^1].
 
-Cycles between 8 modes of signal streangth. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `distancePin` will light up.
+Cycles between 5 modes of signal streangth. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `distancePin` will light up.
 
 ## Setup:
 Requires, (x2) ESP32C3s (I have only tested on XIAO models).
@@ -21,19 +21,13 @@ You'll be able to monitor output through console to confirm functionality.
 
 Cycle 1: 19dBm
 
-Cycle 2: 17dBm
+Cycle 2: 15dBm
 
-Cycle 3: 15dBm
+Cycle 3: 11dBm
 
-Cycle 4: 13dBm
+Cycle 4: 7dBm
 
-Cycle 5: 11dBm
-
-Cycle 6: 7dBm
-
-Cycle 7: 5dBm
-
-Cycle 8: 2dBm
+Cycle 5: 2dBm
 
 ### Resources:
 [^1]: https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFiGeneric.h
