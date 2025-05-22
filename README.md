@@ -1,16 +1,16 @@
 ## Basic distance
 
-Measures distance between two ESP32C3 by adjusting the wifi transmission power[^1].
+Measures distance between two ESP32C3 by adjusting the wifi transmission power.
 
 ## How does it work?
 
-Cycles between 5 modes of signal streangth. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
+The idea is based on the RSSI-based distance estimation method [^3]. Cycles between 5 modes of signal streangth [^1]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
 
 ## Setup:
 Requires, (x2) ESP32C3s (I have only tested on XIAO models).
 
 ### - Reciever
-  1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino)[^2]. Write this mac address down.
+  1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino)[^3]. Write this mac address down.
   2) Upload reciever.ino to previously used ESPC3s. Power it on and set it to the side.
 ### - Transmitter
   3) Replace the MAC address in transmitter.ino's code with the new one you recieved, then upload the edited transmitter.ino to your second ESP32C3.
@@ -33,5 +33,7 @@ Cycle 4: 7dBm
 Cycle 5: 2dBm
 
 ### Resources:
+
 [^1]: https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFiGeneric.h
-[^2]: https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/
+[^2]: https://en.wikipedia.org/wiki/Received_signal_strength_indicator#RSSI-based_distance_estimation
+[^3]: https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/
