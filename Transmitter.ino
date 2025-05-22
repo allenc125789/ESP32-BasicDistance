@@ -6,7 +6,7 @@
 uint8_t broadcastAddress[] = {0xB0, 0x81, 0x84, 0x04, 0x97, 0x88};
 int loopcount = 0;
 int txpower = 0;
-bool txsend = 0;
+bool confirmTx = 0;
 //Pin Out
 const int ledPin =  3;    // Pin D1
 const int buzzerPin =  4;    // Pin D2
@@ -23,49 +23,36 @@ esp_now_peer_info_t peerInfo;
 
 // callback when data is sent
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  //Serial.print("\r\nLast Packet Send Status:\t");
+  //Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
   if (status == ESP_NOW_SEND_SUCCESS){
-    txsend = true;
+    confirmTx = true;
   } else {
-    txsend = false;
+    confirmTx = false;
   }
 }
 
-void confirmTx(){
+void sendTx(){
   // Set values to send
   myData.p = true;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-
-  //Bool of message-tx confirmation
-  if (result == ESP_OK) {
-    Serial.println("Sent with success");
-  } else {
-    Serial.println("Error sending the data");
-  }
 }
 
 void selectTxPower(int loopcount){
     if (loopcount == 0){
         txpower = WIFI_POWER_19dBm;      // 19dBm
-    } if (loopcount == 1){
-        txpower = WIFI_POWER_17dBm;      // 17dBm
-    } if (loopcount == 2){
+    } else if (loopcount == 1){
         txpower = WIFI_POWER_15dBm;      // 15dBm
-    } if (loopcount == 3){
-        txpower = WIFI_POWER_13dBm;      // 13dBm
-    } if (loopcount == 4){
+    } else if (loopcount == 2){
         txpower = WIFI_POWER_11dBm;      // 11dBm
-    } if (loopcount == 5){
+    } else if (loopcount == 3){
         txpower = WIFI_POWER_7dBm;       //  7dBm
-    } if (loopcount == 6){
-        txpower = WIFI_POWER_5dBm;       //  5dBm
-    } if (loopcount == 7){
+    } else if (loopcount == 4){
         txpower = WIFI_POWER_2dBm;       //  2dBm
     }
     esp_wifi_set_max_tx_power(txpower);
-    Serial.println(WiFi.getTxPower());
+    //Serial.println(WiFi.getTxPower());
 }
 
 void setup() {
@@ -106,8 +93,8 @@ void loop() {
   selectTxPower(loopcount);
 
   //Sends and confirms Message transmission.
-  confirmTx();
-  if (txsend == true){
+  sendTx();
+  if (confirmTx == true){
     //Activates pins depending on confirmation of range.
     digitalWrite(ledPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
@@ -121,7 +108,7 @@ void loop() {
 
   //Determines stage of loop
   loopcount += 1;
-  if (loopcount == 8){
+  if (loopcount == 5){
     loopcount = 0;
   }
 }
