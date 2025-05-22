@@ -4,9 +4,9 @@ Measures distance between two ESP32C3 by adjusting the wifi transmission power.
 
 ## How does it work?
 
-The idea is based on the RSSI-based distance estimation method [^3].
++ The idea is based on the RSSI-based distance estimation method [^3].
 
-Cycles between 5 modes of signal streangth [^1]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
++ Cycles between 5 modes of signal streangth [^1]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
 
 ## Setup:
 Requires, (x2) ESP32C3s (I have only tested on XIAO models).
