@@ -9,8 +9,6 @@ Measures distance between two ESP32C3 devices by adjusting the wifi transmission
 + Cycles between 5 modes of signal streangth [^2]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
 
 ## Setup:
-Requires, (x2) ESP32C3s (I have only tested on XIAO models).
-
 ### Reciever...
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino) [^3]. Write this mac address down.
   2) Upload reciever.ino to previously used ESPC3s. Power it on and set it to the side.
