@@ -13,7 +13,8 @@ Requires, (x2) ESP32C3s (I have only tested on XIAO models).
 ### - Transmitter
   3) Replace the MAC address in transmitter.ino's code with the new one you recieved, then upload the edited transmitter.ino to your second ESP32C3.
 
-You'll be able to monitor output through console to confirm functionality.
+
+You'll then be able to monitor output through console to confirm functionality.
 
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
