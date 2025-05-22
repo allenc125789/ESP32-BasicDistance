@@ -14,9 +14,9 @@ Requires, (x2) ESP32C3s (I have only tested on XIAO models).
 ### Reciever...
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino) [^3]. Write this mac address down.
   2) Upload reciever.ino to previously used ESPC3s. Power it on and set it to the side.
-### Transmitter...
-  Replace the MAC address in transmitter.ino's code with the new one you recieved, then upload the edited transmitter.ino to your second ESP32C3.
 
+### Transmitter...
+Replace the MAC address in transmitter.ino's code with the new one you recieved, then upload the edited transmitter.ino to your second ESP32C3.
 
 You'll then be able to monitor output through console to confirm functionality.
 
