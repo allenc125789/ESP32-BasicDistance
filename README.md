@@ -34,7 +34,7 @@ Cycle 4: 7dBm
 
 Cycle 5: 2dBm
 
-### Resources:
+## Resources...
 
 [^1]: https://en.wikipedia.org/wiki/Received_signal_strength_indicator#RSSI-based_distance_estimation
 [^2]: https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFiGeneric.h
