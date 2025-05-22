@@ -14,11 +14,11 @@ Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmi
   2) Upload `Reciever.ino` to previously used ESPC3s. Power it on and set it to the side.
 
 ### Transmitter...
-  1) Replace the MAC address in `Transmitter.ino`'s code with the new one you recieved.
+  1) Replace the MAC address in `Transmitter.ino`'s code with the new one you received.
   2) Upload the edited `Transmitter.ino` to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
 
 ### Circuit (Optional)...
-This is a reference schematic for building a basic circuit that utilizes my program. The circuit adds a module for power by LiPo battery for portability, and functionality for an LED and piezo buzzer. This step is optional, as the program will function without it.
+This is a reference schematic for building a basic circuit that utilizes my program. The circuit adds portability with a module for power by LiPo battery, and visual reference with an LED and piezo buzzer. This step is optional, as the program will function without it.
 ![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
 
 ## Distance Calculation
