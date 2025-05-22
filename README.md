@@ -4,7 +4,7 @@ Measures distance between two ESP32C3 by adjusting the wifi transmission power.
 
 ## How does it work?
 
-+ The idea is based on the RSSI-based distance estimation method [^3].
++ The idea is based on the RSSI-based distance estimation method [^1].
 
 + Cycles between 5 modes of signal streangth [^1]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As distance shortens between the transmitter and reciever, the higher frequency the `ledPin` will light up.
 
@@ -36,6 +36,6 @@ Cycle 5: 2dBm
 
 ### Resources:
 
-[^1]: https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFiGeneric.h
-[^2]: https://en.wikipedia.org/wiki/Received_signal_strength_indicator#RSSI-based_distance_estimation
+[^1]: https://en.wikipedia.org/wiki/Received_signal_strength_indicator#RSSI-based_distance_estimation
+[^2]: https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/src/WiFiGeneric.h
 [^3]: https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/
