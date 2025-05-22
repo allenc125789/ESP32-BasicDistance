@@ -32,6 +32,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   }
 }
 
+//Sends and confirms Message transmission.
 void sendTx(){
   // Set values to send
   myData.p = true;
@@ -39,6 +40,7 @@ void sendTx(){
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
 }
 
+//Sets Wi-Fi Transmission range.
 void selectTxPower(int loopcount){
     if (loopcount == 0){
         txpower = WIFI_POWER_19dBm;      // 19dBm
@@ -89,22 +91,19 @@ void setup() {
 }
 
 void loop() {
-  //Sets Wi-Fi Transmission range.
   selectTxPower(loopcount);
 
-  //Sends and confirms Message transmission.
   sendTx();
   if (confirmTx == true){
-    //Activates pins depending on confirmation of range.
     digitalWrite(ledPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
-    delay(200);
+    delay(200); //On Time
     digitalWrite(ledPin, LOW);
     digitalWrite(buzzerPin, LOW);
   } else {
     delay(200);
   }
-  delay(200);
+  delay(200);   //Off Time
 
   //Determines stage of loop
   loopcount += 1;
