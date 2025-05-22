@@ -6,7 +6,7 @@ Measures distance between two XIAO-ESP32C3 devices by adjusting the wifi transmi
 
 + This program is based on the RSSI-based distance estimation method [^1].
 
-+ Cycles between 5 modes of signal streangth [^2]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As the two devices get closer, the frequency will increase for `ledPin` to light up.
++ Cycles between 5 modes of signal streangth [^2]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As the two devices get closer, the frequency of output on the `ledPin`.
 
 ## Setup:
 ### Reciever...
