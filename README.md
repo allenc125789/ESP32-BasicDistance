@@ -18,11 +18,12 @@ Estimates distance between two XIAO-ESP32C3 devices by adjusting the wifi transm
   2) Upload the edited `Transmitter.ino` to your second ESP32C3. You'll then be able to monitor output through console to confirm functionality.
 
 ### Transmitter Circuit (Optional)...
-This is a reference schematic for building a basic circuit that utilizes my program. The circuit adds portability with a Battery Management System(U1) and a LiPo battery, and visual/auditory reference with an LED and piezo buzzer. This step is optional, as the program will function without it.
+This is a basic schematic for building a basic circuit that utilizes this program. The circuit adds portability with a Battery Management System(U1) and a LiPo battery, and visual/auditory reference with an LED and piezo buzzer. This step is optional, as the program will function without it.
 ![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
 
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
+
 -To do: calculate distance.
 
 Cycle 1: 19dBm
