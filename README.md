@@ -10,7 +10,7 @@ Estimates distance between two XIAO-ESP32C3 devices by adjusting the wifi transm
 
 ## Setup:
 
-<details>
+<Expand...>
 
 ### Reciever...
   1) Get the mac address of 1 of your ESP32C3s. [I used this code to get mine, provided by Random Nerd Tutorials](https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/ESP32_Get_MAC_Address.ino) [^3]. Write this mac address down.
