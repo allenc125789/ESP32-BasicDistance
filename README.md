@@ -24,7 +24,7 @@ Estimates distance between two XIAO-ESP32C3 devices by adjusting the wifi transm
 This is a reference schematic for building a basic circuit that utilizes this program. The circuit adds portability with a Battery Management System(U1) and a LiPo battery, and visual/auditory reference with an LED and piezo buzzer. This step is optional, as the program will function without it.
 ![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
 
-</details>
+</Expand...>
 
 
 ## Distance Calculation
