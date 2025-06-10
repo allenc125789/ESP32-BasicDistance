@@ -9,7 +9,6 @@ Estimates distance between two XIAO-ESP32C3 devices by adjusting the wifi transm
 + Cycles between 5 modes of signal streangth [^2]. Then sends a bool statement through the ESP-NOW protocol, and if recieved, will power an LED and a piezo buzzer. As the two devices get closer, the frequency of output will increase.
 
 ## Setup:
-
 <expand>
 
   ### Reciever...
@@ -25,7 +24,6 @@ Estimates distance between two XIAO-ESP32C3 devices by adjusting the wifi transm
   ![Transmitter Circuit Schematic](https://github.com/allenc125789/ESP32C3-BasicDistance/blob/main/KiCad-files/ESP32C3-DistanceTracker-Transmitter.jpg)
 
 </expand>
-
 
 ## Distance Calculation
 (Will depend on the antenna used. These calculations will use this [Seeed Studio Antenna](https://media-cdn.seeedstudio.com/media/catalog/product/cache/bb49d3ec4ee05b6f018e93f896b8a25d/5/-/5-113991114-xiao-esp32s3-45fontall_1.jpg))
